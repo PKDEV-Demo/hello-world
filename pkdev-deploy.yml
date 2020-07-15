@@ -24,3 +24,19 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pkdev-service
+  labels:
+    app: pkdev-devops-project
+spec:
+  selector:
+    app: pkdev-devops-project
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8080
+      
+
